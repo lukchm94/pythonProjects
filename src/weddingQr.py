@@ -12,22 +12,23 @@ RSVP_URL = f'{WEBSITE_URL}rsvp/'
 qrcode = segno.make(WEBSITE_URL, error='h')
 rsvpCode = segno.make(RSVP_URL, error='h')
 # --- 3. Save the QR Code Image ---
-
-# Save the QR code to a PNG file with some styling
+title = 'website_qr_code.png'
+# Save the QR code to a PNG file with transparent background
+# Using RGBA values where the last two digits control transparency (00 = fully transparent)
 qrcode.save(
-    'approx.png',
+    title,
     scale=128,        # Scale determines the size of the image (8x the base size)
-    dark='#E295BD', # Sets the color of the dark modules (e.g., a dark blue)
-    light='#4B638A',  # Sets the color of the light modules (background)
+    dark='#e4c9d7', # Sets the color of the dark modules (e.g., a light pink)
+    light=None,       # Transparent background (None for segno library)
     border=4        # Sets the border size
 )
 
 rsvpCode.save(
     'rsvp.png',
     scale=128,        # Scale determines the size of the image (8x the base size)
-    dark='#374151', # Sets the color of the dark modules (e.g., a dark blue)
-    light='white',  # Sets the color of the light modules (background)
+    dark='#374151', # Sets the color of the dark modules (dark gray)
+    light=None,       # Transparent background (None for segno library)
     border=4        # Sets the border size
 )
 
-print(f"Successfully generated 'website_qr_code.png' for URL: {WEBSITE_URL}")
+print(f"Successfully generated '{title}' for URL: {WEBSITE_URL}")
