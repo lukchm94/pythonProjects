@@ -1,0 +1,16 @@
+[project]
+name = "cache"
+version = "0.1.0"
+description = "LRU Cache with TTL and Metrics"
+authors = [
+    {name = "Lukasz Chmielewski", email = "lukchm94@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+
+[tool.pdm.scripts]
+cache = "python main.py"
