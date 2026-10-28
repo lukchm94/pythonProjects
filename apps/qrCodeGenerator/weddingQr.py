@@ -24,9 +24,9 @@ qrcode.save(
 )
 
 rsvpCode.save(
-    'rsvp.png',
+    'rsvp_qr_code.png',
     scale=128,        # Scale determines the size of the image (8x the base size)
-    dark='#374151', # Sets the color of the dark modules (dark gray)
+    dark='#e4c9d7', # Sets the color of the dark modules (e.g., a light pink)
     light=None,       # Transparent background (None for segno library)
     border=4        # Sets the border size
 )
