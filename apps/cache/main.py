@@ -1,19 +1,38 @@
-# ## Problem 1: LRU Cache with TTL (Time-To-Live) & Metrics
-# The Problem Description
-# Implement a thread-safe LRUCache class that handles time-to-live (TTL) expiration and collects usage metrics.
+"""Problem 1: Implement a thread-safe LRU cache with TTL and metrics.
 
-# Your cache must support the following methods:
+Requirements:
+- ``LRUCache(capacity)`` stores at most ``capacity`` key/value pairs.
+- ``get(key)`` returns the value or None. A successful lookup makes the key
+  most recently used; a missing or expired key is a miss.
+- ``put(key, value, ttl=None)`` inserts or replaces a key. A TTL is in seconds;
+  expired entries should be removed and counted as evictions. ``get`` removes
+  an expired requested key; ``put`` may purge expired entries before evicting
+  for capacity.
+- When capacity is exceeded, evict the least recently used entry and count it.
+- ``get_metrics()`` returns hits, misses, hit_rate, miss_rate, and evictions.
+  A cache with no lookups has hit_rate and miss_rate equal to 0.
+- All public operations must be safe to call from multiple threads.
 
-# __init__(self, capacity: int): Initializes the cache with a maximum capacity.
+Use a monotonic clock for expiry. Decide how to handle invalid capacities and
+non-positive TTLs, and document your choice.
+"""
 
-# get(key): Returns the value of the key if the key exists and has not expired. Otherwise, returns None. Accessing an item updates its most-recently-used status.
+from typing import Any
 
-# put(key, value, ttl: float | None = None): Inserts or updates the value. If the cache exceeds capacity (or contains expired items), it must evict the least recently used item. If a ttl (in seconds) is provided, the item should expire after that duration.
 
-# get_metrics() -> dict: Returns a dictionary tracking performance metrics, such as:
+class LRUCache:
+    def __init__(self, capacity: int) -> None:
+        # TODO: Initialize storage, synchronization, and metric counters.
+        raise NotImplementedError
 
-# Hit rate (hits / total lookups)
+    def get(self, key: Any) -> Any | None:
+        # TODO: Expire stale entries, update recency, and record a hit or miss.
+        raise NotImplementedError
 
-# Miss rate (misses / total lookups)
+    def put(self, key: Any, value: Any, ttl: float | None = None) -> None:
+        # TODO: Insert or update the value and evict entries when necessary.
+        raise NotImplementedError
 
-# Total evictions (capacity-based + TTL-based)
+    def get_metrics(self) -> dict[str, int | float]:
+        # TODO: Return a snapshot of the requested metrics.
+        raise NotImplementedError
