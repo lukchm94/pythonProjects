@@ -16,7 +16,6 @@ an unbounded registry. Add tests for concurrent use, reuse, and capacity.
 """
 
 from dataclasses import dataclass
-from threading import Lock
 
 
 @dataclass(slots=True, weakref_slot=True)
