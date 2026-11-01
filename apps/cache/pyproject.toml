@@ -1,7 +1,7 @@
 [project]
 name = "cache"
 version = "0.1.0"
-description = "LRU Cache with TTL and Metrics"
+description = "LRU cache interview and take-home exercises"
 authors = [
     {name = "Lukasz Chmielewski", email = "lukchm94@gmail.com"},
 ]
@@ -13,4 +13,4 @@ distribution = false
 
 
 [tool.pdm.scripts]
-cache = "python main.py"
+cache = "python base.py"

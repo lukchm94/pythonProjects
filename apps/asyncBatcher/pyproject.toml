@@ -12,4 +12,4 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-async-batcher = "python main.py"
+async-batcher = "python base.py"

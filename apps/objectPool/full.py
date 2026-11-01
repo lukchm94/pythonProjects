@@ -1,4 +1,4 @@
-"""Problem 7: Implement an object pool and optimize its pooled objects.
+"""Full exercise: Problem 7: Implement an object pool and optimize its pooled objects.
 
 Create a bounded, thread-safe pool for instances of ``PooledItem``.
 

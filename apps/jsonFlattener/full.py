@@ -1,4 +1,4 @@
-"""Problem 2: Flatten and rebuild nested JSON-compatible data.
+"""Full exercise: Problem 2: Flatten and rebuild nested JSON-compatible data.
 
 Implement ``flatten`` and ``unflatten`` for dictionaries and lists. Use dot
 notation for paths and decimal list indices (for example,

@@ -1,20 +1,26 @@
-"""Problem 1: Implement a thread-safe LRU cache with TTL and metrics.
+"""Full exercise: Build a thread-safe LRU cache with TTL and metrics.
+
+This is the extended, take-home version. The current implementation below is
+the working attempt carried over from ``main.py``; it does not yet satisfy all
+requirements.
 
 Requirements:
 - ``LRUCache(capacity)`` stores at most ``capacity`` key/value pairs.
 - ``get(key)`` returns the value or None. A successful lookup makes the key
   most recently used; a missing or expired key is a miss.
-- ``put(key, value, ttl=None)`` inserts or replaces a key. A TTL is in milliseconds;
-  expired entries should be removed and counted as evictions. ``get`` removes
-  an expired requested key; ``put`` may purge expired entries before evicting
-  for capacity.
-- When capacity is exceeded, evict the least recently used entry and count it.
+- ``put(key, value, ttl=None)`` inserts or replaces a key. TTLs are in
+  milliseconds; the constructor TTL is the default. Reject non-positive
+  capacity and TTL values.
+- Use a monotonic clock for expiry. ``get`` removes an expired requested key;
+  ``put`` may purge expired entries before making room.
+- When capacity is reached, evict the least recently used entry. Count both
+  expired-entry removals and capacity evictions as evictions.
 - ``get_metrics()`` returns hits, misses, hit_rate, miss_rate, and evictions.
-  A cache with no lookups has hit_rate and miss_rate equal to 0.
+  With no lookups, both rates are 0.
 - All public operations must be safe to call from multiple threads.
 
-Decide how to handle invalid capacities and
-non-positive TTLs, and document your choice.
+Add tests for TTL boundaries, replacement, recency, capacity, metrics, and
+concurrent access. Background cleanup is not required.
 """
 
 from datetime import datetime, timedelta, timezone

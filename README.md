@@ -32,12 +32,13 @@ pdm run name-decorator
 
 ## Practice problems
 
-Each problem is an independent PDM app. Its `main.py` contains the exercise
-description and starter interfaces; complete the TODOs to solve it.
+Each problem is an independent PDM app. Its ``base.py`` is a focused
+30-45 minute interview exercise; ``full.py`` contains the extended take-home
+version. Complete the TODOs to solve an exercise.
 
 | Problem | App |
 | --- | --- |
-| 1. LRU cache with TTL and metrics | `apps/cache` |
+| 1. LRU cache | `apps/cache` |
 | 2. Nested JSON/dict flattener and unflattener | `apps/jsonFlattener` |
 | 3. Thread-safe token bucket rate limiter | `apps/rateLimiter` |
 | 4. Async batcher with bounded backpressure | `apps/asyncBatcher` |

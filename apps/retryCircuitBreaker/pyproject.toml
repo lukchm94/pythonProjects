@@ -12,4 +12,4 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-retry-circuit-breaker = "python main.py"
+retry-circuit-breaker = "python base.py"

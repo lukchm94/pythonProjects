@@ -1,4 +1,4 @@
-"""Problem 3: Implement a thread-safe token bucket rate limiter.
+"""Full exercise: Problem 3: Implement a thread-safe token bucket rate limiter.
 
 The bucket has a positive token capacity and positive refill rate in tokens
 per second. ``allow_request(cost=1)`` should atomically consume ``cost`` tokens

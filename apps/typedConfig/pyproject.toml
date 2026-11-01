@@ -12,4 +12,4 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-typed-config = "python main.py"
+typed-config = "python base.py"
