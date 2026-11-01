@@ -1,4 +1,4 @@
-"""Problem 5: Implement a retry and circuit-breaker decorator.
+"""Full exercise: Problem 5: Implement a retry and circuit-breaker decorator.
 
 Create ``retry_with_circuit_breaker`` as a decorator factory for synchronous
 and asynchronous functions.

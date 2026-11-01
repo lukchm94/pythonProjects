@@ -12,4 +12,4 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-rate-limiter = "python main.py"
+rate-limiter = "python base.py"
