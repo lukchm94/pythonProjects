@@ -1,0 +1,15 @@
+[project]
+name = "rate-limiter"
+version = "0.1.0"
+description = "Thread-safe token bucket rate limiter exercise"
+authors = [
+    {name = "Lukasz Chmielewski", email = "lukchm94@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+rate-limiter = "python main.py"

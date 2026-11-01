@@ -1,0 +1,16 @@
+{
+  "github.copilot.enable": {
+    "*": false
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "always",
+      "source.organizeImports.ruff": "always"
+    }
+  },
+  "ruff.enable": true,
+  "ruff.lint.enable": true
+}
