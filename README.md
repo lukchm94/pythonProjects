@@ -32,19 +32,20 @@ pdm run name-decorator
 
 ## Practice problems
 
-Each problem is an independent PDM app. Its ``base.py`` is a focused
-30-45 minute interview exercise; ``full.py`` contains the extended take-home
-version. Complete the TODOs to solve an exercise.
+Each problem is an independent PDM app. Its `base.py` is a focused
+30-45 minute interview exercise; `full.py` contains the extended take-home
+version. Complete the base exercises in the suggested order below, then try
+the corresponding full versions as extensions.
 
-| Problem | App |
-| --- | --- |
-| 1. LRU cache | `apps/cache` |
-| 2. Nested JSON/dict flattener and unflattener | `apps/jsonFlattener` |
-| 3. Thread-safe token bucket rate limiter | `apps/rateLimiter` |
-| 4. Async batcher with bounded backpressure | `apps/asyncBatcher` |
-| 5. Retry and circuit-breaker decorator | `apps/retryCircuitBreaker` |
-| 6. Type-safe configuration loader | `apps/typedConfig` |
-| 7. Object pooling and memory optimization | `apps/objectPool` |
+| Order | Interview exercise | Base file |
+| --- | --- | --- |
+| 1 | LRU cache | `apps/cache/base.py` |
+| 2 | Flatten nested JSON-compatible data | `apps/jsonFlattener/base.py` |
+| 3 | Load typed settings from environment variables | `apps/typedConfig/base.py` |
+| 4 | Add retry behavior to a synchronous function | `apps/retryCircuitBreaker/base.py` |
+| 5 | Implement a token bucket rate limiter | `apps/rateLimiter/base.py` |
+| 6 | Build a bounded object pool | `apps/objectPool/base.py` |
+| 7 | Fetch a batch with bounded async concurrency | `apps/asyncBatcher/base.py` |
 
 For example:
 
