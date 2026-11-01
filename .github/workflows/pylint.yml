@@ -1,0 +1,22 @@
+name: Pylint
+
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install Pylint
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pylint
+      - name: Analyze Python files with Pylint
+        run: pylint $(git ls-files '*.py')
