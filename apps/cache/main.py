@@ -74,11 +74,11 @@ class LRUCache:
         self.tz = timezone.utc
         self.cache = {}
 
-        if capacity < 0:
+        if capacity <= 0:
             raise CapacityError(capacity)
         self.capacity = capacity
 
-        if ttl < 0:
+        if ttl <= 0:
             raise TtlError(ttl)
         self.ttl = ttl
 
@@ -95,15 +95,11 @@ class LRUCache:
         return item.value
 
     def put(self, key: str, value: Any, ttl: int | None = None) -> None:
-        if self.__exceeds_capacity():
-            raise ExceededCacheCapacityError(self.capacity, len(self.cache))
-
-        now = self.__now()
-        valid_ttl: int = self.ttl if ttl is None else self.__validate_ttl(ttl)
-        expired_at: datetime = now + timedelta(milliseconds=valid_ttl)
-        item: CacheItem = CacheItem(value, expired_at)
-
-        self.cache[key] = item
+        return (
+            self.__handle_cache_cap(key, value, ttl)
+            if self.__exceeds_capacity(key)
+            else self.__insert_item(key, value, ttl)
+        )
 
     def get_metrics(self) -> dict[str, int | float]:
         # TODO: Return a snapshot of the requested metrics.
@@ -117,7 +113,11 @@ class LRUCache:
     def __now(self) -> datetime:
         return datetime.now(self.tz)
 
-    def __exceeds_capacity(self) -> bool:
+    def __exceeds_capacity(self, key: str) -> bool:
+        current_exists = self.cache.get(key)
+        if current_exists is not None:
+            return False
+
         return len(self.cache) >= self.capacity
 
     def __validate_ttl(self, ttl: Any) -> int:
@@ -128,3 +128,35 @@ class LRUCache:
             raise TtlError(ttl)
 
         return int(ttl)
+
+    def __cache_cleared(self) -> bool:
+        for key in self.cache.keys():
+            self.__evaluate_cache_item_expiration(key)
+
+            if len(self.cache) < self.capacity:
+                return True
+
+        return False
+
+    def __evaluate_cache_item_expiration(self, key: str) -> None:
+        item = self.cache.get(key)
+
+        if item is None:
+            return
+
+        if self.__is_expired(item):
+            self.cache.pop(key)
+
+    def __handle_cache_cap(self, key: str, value: Any, ttl: int | None = None) -> None:
+        if self.__cache_cleared():
+            return self.__insert_item(key, value, ttl)
+
+        raise ExceededCacheCapacityError(self.capacity, len(self.cache))
+
+    def __insert_item(self, key: str, value: Any, ttl: int | None = None) -> None:
+        now = self.__now()
+        valid_ttl: int = self.ttl if ttl is None else self.__validate_ttl(ttl)
+        expired_at: datetime = now + timedelta(milliseconds=valid_ttl)
+        item: CacheItem = CacheItem(value, expired_at)
+
+        self.cache[key] = item
