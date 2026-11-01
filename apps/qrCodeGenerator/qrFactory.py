@@ -1,6 +1,4 @@
-import segno # type: ignore
 from segno import helpers
-from PIL import Image # type: ignore
 
 # --- 1. Data to Encode ---
 # Data for the Wi-Fi connection

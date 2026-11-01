@@ -1,6 +1,4 @@
-import segno # type: ignore
-from segno import helpers
-from PIL import Image # type: ignore
+import segno  # type: ignore
 
 # --- 1. Data to Encode ---
 # Replace this URL with the website you want to encode
@@ -14,7 +12,8 @@ rsvpCode = segno.make(RSVP_URL, error='h')
 # --- 3. Save the QR Code Image ---
 title = 'website_qr_code.png'
 # Save the QR code to a PNG file with transparent background
-# Using RGBA values where the last two digits control transparency (00 = fully transparent)
+# Using RGBA values where the last two digits control transparency
+# (00 = fully transparent).
 qrcode.save(
     title,
     scale=128,        # Scale determines the size of the image (8x the base size)
