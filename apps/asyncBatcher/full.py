@@ -1,4 +1,5 @@
-"""Problem 4: Build an async scraper/API batcher with bounded backpressure.
+"""Full exercise: Problem 4: Build an async scraper/API batcher with bounded
+backpressure.
 
 Implement ``fetch_all`` as the concurrent worker core of a scraper or API
 client. Process an iterable of inputs using an injected async fetch function

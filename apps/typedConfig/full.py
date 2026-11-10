@@ -1,4 +1,4 @@
-"""Problem 6: Build a type-safe configuration loader.
+"""Full exercise: Problem 6: Build a type-safe configuration loader.
 
 Implement ``Config.from_env(prefix)`` using class annotations as the schema.
 Subclasses declare fields and may provide defaults as class attributes:

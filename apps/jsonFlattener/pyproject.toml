@@ -12,4 +12,4 @@ license = {text = "MIT"}
 distribution = false
 
 [tool.pdm.scripts]
-json-flattener = "python main.py"
+json-flattener = "python base.py"
