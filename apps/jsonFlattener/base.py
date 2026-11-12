@@ -25,3 +25,37 @@ def flatten(value: dict[str, Any] | list[Any]) -> dict[str, Any]:
     """Convert a nested dictionary/list into a dot-path mapping."""
     # TODO: Walk nested containers and emit scalar and empty-container leaves.
     raise NotImplementedError
+
+
+if __name__ == "__main__":
+    cases: list[tuple[str, dict[str, Any] | list[Any], dict[str, Any]]] = [
+        (
+            "nested example",
+            {"users": [{"name": "Ada"}]},
+            {"users.0.name": "Ada"},
+        ),
+        (
+            "mixed containers",
+            {"a": [1, {"b": [True, None]}]},
+            {"a.0": 1, "a.1.b.0": True, "a.1.b.1": None},
+        ),
+        ("empty root dict", {}, {"": {}}),
+        ("empty root list", [], {"": []}),
+        ("empty nested containers", {"a": [], "b": {}}, {"a": [], "b": {}}),
+        (
+            "scalar dict values",
+            {"n": 3, "flag": False, "none": None},
+            {"n": 3, "flag": False, "none": None},
+        ),
+    ]
+
+    for name, value, expected in cases:
+        try:
+            actual = flatten(value)
+        except Exception as error:
+            print(f"{name}: raised {type(error).__name__}: {error}")
+            continue
+
+        print(f"{name}:")
+        print(f"  expected: {expected!r}")
+        print(f"  actual:   {actual!r}")
