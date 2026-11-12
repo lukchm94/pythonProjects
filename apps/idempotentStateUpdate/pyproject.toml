@@ -1,0 +1,15 @@
+[project]
+name = "idempotent-state-update"
+version = "0.1.0"
+description = "Beginner idempotent state update exercise"
+authors = [
+    {name = "Lukasz Chmielewski", email = "lukch94@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+idempotent-state-update = "python base.py"
