@@ -1,0 +1,15 @@
+[project]
+name = "idempotency-executor"
+version = "0.1.0"
+description = "In-memory idempotency key exercise"
+authors = [
+    {name = "Lukasz Chmielewski", email = "lukch94@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+idempotency-executor = "python base.py"
