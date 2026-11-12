@@ -1,0 +1,15 @@
+[project]
+name = "idempotent-event-handler"
+version = "0.1.0"
+description = "Beginner in-memory event deduplication exercise"
+authors = [
+    {name = "Lukasz Chmielewski", email = "lukch94@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+idempotent-event-handler = "python base.py"
